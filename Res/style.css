@@ -238,6 +238,7 @@ li{
 
 .hercsched{
 	border-collapse: collapse;
+	border-style: solid;
 }
 
 .hercsched td, .hercsched th{

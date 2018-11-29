@@ -38,7 +38,10 @@ function evaluateQuiz()
     else
     document.getElementById("corrects").innerHTML = "You got " + numRight + " answers correct!";
 
-    audio = new Audio('Res/Megalovania.mp3');
+	if(numRight == 5)
+		audio = new Audio('Res/Dr. B Success.m4a');
+	else
+		audio = new Audio('Res/Dr. B Failure.m4a');
     audio.play();
 
     let n = document.getElementsByClassName("content")[0].style;

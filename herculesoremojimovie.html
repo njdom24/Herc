@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <title>Herc or Emoji</title>
+    <link rel="stylesheet" href="Res\style.css">
+    <link rel="shortcut icon" type="image/x-icon" href="Res\favicon.ico"/>
+    <script src="Res/pickMovie.js" async></script>
+  </head>
+  <body>
+    <header>
+      <h1>Hercules or The Emoji Movie?</h1>
+      <nav class="navClass">
+            <ul>
+            <li><a href="index.html">Home</a></li>
+            <li>Time Management
+                <ul class = "sub_menu">
+                    <li><a href="TimeManImp.html">Importance</a></li>
+                    <li><a href="timeQuiz.html">Quiz</a></li>
+                </ul>
+                <span class="arrow">&#9660</span>
+            </li>
+            <li>Scheduling
+                <ul class = "sub_menu">
+                    <li><a href = "hercschedule.html">See Professor Herc's Schedule</a></li>
+                    <li><a href="compare2schedules.html">Compare 2 Schedules</a></li>
+                    <li><a href="profHercSched.html">Compare Your Schedule to Prof. Herc's</a></li>
+                    <li><a href ="herculesoremojimovie.html">Watch Hercules or the Emoji Movie?</a></li>
+                </ul>
+                <span class="arrow">&#9660</span>
+            </li>
+            </ul>
+      </nav>
+  </header>
+    <div class="content">
+     <table class="movie">
+        <thead>
+        <tr>
+          <th class="title">Titles</th>
+          <th class="title">Hercules</th>
+          <th class="title">The Emoji Movie</th>
+        </tr>
+        </thead>
+        <body>
+        <tr class="info">
+          <th class = "centercell"><b>Poster</b></th>
+          <td rowspan=1>
+            <img class= "poster" src="Res\HerculesPoster.jpg">
+          </td>
+          <td rowspan=1>
+            <img class= "poster" src="Res\TheEmojiMoviePoster.jpg">
+          </td>
+        </tr>
+        <tr class="info">
+          <th class = "centercell" ><b>Trailer</b></th>
+          <td class="green" rowspan=1>
+            <a href="https://www.youtube.com/watch?v=ZvtspevZxpg">HERCULES Trailer</a>
+          </td>
+          <td class="red" rowspan=1>
+            <a href="https://www.youtube.com/watch?v=o_nfdzMhmrA">THE EMOJI MOVIE Trailer</a>
+          </td>
+        </tr>
+        <tr class="info">
+          <th class = "centercell" ><b>Rotten Tomatoes Score</b></th>
+          <td class="green" rowspan="1">
+            83% - <b>FRESH</b>
+          </td>
+          <td class="red" rowspan="1">
+            8% - <b>VERY ROTTEN</b>
+          </td>
+        </tr>
+        <tr class="info">
+          <th class = "centercell" ><b>MetaCritic Score</b></th>
+          <td class="green" rowspan="1">
+            74 - <b>GENERALLY FAVORABLE</b>
+          </td>
+          <td class="red" rowspan="1">
+            12 - <b>OVERWHELMING DISLIKE</b>
+          </td>
+        </tr>     
+        <tr class="info">
+          <th class = "centercell" ><b>Domestic Box Office</b></th>
+          <td class="green" rowspan="1">
+            <b>$99,112,101</b>
+          </td>
+          <td class="red" rowspan="1">
+            <b>$86,089,513</b>
+          </td>
+        </tr> 
+        <tr class="info">
+          <th class = "centercell"><b>Awards</b></th>
+          <td class="green" rowspan="1">
+            <b>ACADEMY AWARD NOMINEE</b>
+            <ul>
+              <li>Best Original Song</li>
+            </ul>
+          </td>
+          <td class="red" rowspan="1">
+            <b>RAZZIE AWARD WINNER</b>
+            <ul>
+              <li>Worst Picture</li>
+              <li>Worst Director</li>
+              <li>Worst Screenplay</li>
+              <li>Worst Screen Combo</li>
+          </ul>
+          </td>
+        </tr>
+        <tr class="info">
+          <th class = "centercell" ><b>Critic Review</b></th>
+          <td class="green" rowspan="1">
+            <b>Score: 91</b>
+            <br>"Furiously fast and fiendishly funny, Disney's 35th animated feature, Hercules outlines its musical-comedy agenda pronto. Even its villainous super-schmoozer Hades, well-ignited by the neurotic natterings of James Woods, would appreciate such get-to-the-pointedness." - Susan Wloszczyna
+          </td>
+          <td class="red" rowspan="1">
+            <b>Score: 0</b>
+            <br>"It is a soul-crushing disaster because it lacks humor, wit, ideas, visual style, compelling performances, a point of view or any other distinguishing characteristic that would make it anything but a complete waste of your time, not to mention that of the diligent animators who brought this catastrophe into being." - Alonso Duralde
+          </td>  
+          </tr>        
+      </table>
+    
+  </div>
+  <div class="content">
+    <h3>
+        Randomly find out which movie you should watch today. Will it be Hercules or The Emoji Movie?
+    </h3>
+    <button class="button" onclick="NewMovie()">Press Here</button>
+
+    <div id='MovieResult'>
+        <br><br>
+        
+          <!-- Movies will display here -->
+      </div>
+  </div>
+    
+      
+  </body>

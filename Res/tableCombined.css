@@ -16,7 +16,7 @@ table, th, td {
 td{
     border-right: 1px solid lightgray;
 }
-.course, #headers{
+.even, .odd{
     background-color: rosybrown;
     background-image: linear-gradient(to left, #ff9966 0%, #ff5e62 51%);
     color: ghostwhite;
@@ -24,12 +24,8 @@ td{
     text-align: center;
     border: 0px;
 }
-.even{
+.course, #headers{
     background-color: white;
-    border: 0px;
-}
-.odd{
-    background-color: #f7f7f7;
     border: 0px;
 }
 

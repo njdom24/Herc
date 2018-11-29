@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <title>CS 146 Final Project</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://javascript.js" async></script>
+  </head>
+  <body>
+    <h1>Hercules or The Emoji Movie?</h1>
+    <div class="content">
+     <table>
+        <thead>
+        <tr>
+          <th></th>
+          <th>Hercules</th>
+          <th>The Emoji Movie</th>
+        </tr>
+        </thead>
+        <body>
+        <tr>
+          <td><b>Poster</b></td>
+          <td class="green" rowspan=1>
+            <img src="HerculesPoster.jpg">
+          </td>
+          <td class="red" rowspan=1>
+            <img src="TheEmojiMoviePoster.jpg">
+          </td>
+        </tr>
+        <tr>
+          <td><b>Trailer</b></td>
+          <td class="green" rowspan=1>
+            <a href="https://www.youtube.com/watch?v=ZvtspevZxpg">HERCULES Trailer</a>
+          </td>
+          <td class="red" rowspan=1>
+            <a href="https://www.youtube.com/watch?v=o_nfdzMhmrA">THE EMOJI MOVIE Trailer</a>
+          </td>
+        </tr>
+        <tr>
+          <td><b>Rotten Tomatoes Score</b></td>
+          <td class="gren" rowspan="1">
+            83% - FRESH
+          </td>
+          <td class="red" rowspan="1">
+            8% - VERY (x8) ROTTEN
+          </td>
+        </tr>
+        <tr>
+          <td><b>MetaCritic Score</b></td>
+          <td class="green" rowspan="1">
+            74 - GENERALLY FAVORABLE
+          </td>
+          <td class="red" rowspan="1">
+            12 - OVERWHELMING DISLIKE
+          </td>
+        </tr>     
+        <tr>
+          <td><b>Domestic Box Office</b></td>
+          <td class="green" rowspan="1">
+            $99,112,101
+          </td>
+          <td class="red" rowspan="1">
+            $86,089,513
+          </td>
+        </tr> 
+        <tr>
+          <td><b>Awards</b></td>
+          <td class="green" rowspan="1">
+            ACADEMY AWARD NOMINEE
+            <br>Best Original Song
+            <br>
+            <br>
+            <br>
+            <br>
+          </td>
+          <td class="red" rowspan="1">
+            RAZZIE AWARD WINNER
+            <br>Worst Picture
+            <br>Worst Director
+            <br>Worst Screenplay
+            <br>Worst Screen Combo
+          </td>
+        <tr>
+          <td><b>Critic Review</b></td>
+          <td class="green" rowspan="1">
+            Score: 91
+            <br>"Furiously fast and fiendishly funny, Disney's 35th animated feature, Hercules outlines its musical-comedy agenda pronto. Even its villainous super-schmoozer Hades, well-ignited by the neurotic natterings of James Woods, would appreciate such get-to-the-pointedness." - Susan Wloszczyna
+          </td>
+          <td class="red" rowspan="1">
+            Score: 0
+            <br>"It is a soul-crushing disaster because it lacks humor, wit, ideas, visual style, compelling performances, a point of view or any other distinguishing characteristic that would make it anything but a complete waste of your time, not to mention that of the diligent animators who brought this catastrophe into being." - Alonso Duralde
+          </td>          
+      </table>
+    <h3>Randomly find out which movie you should watch today. Will it be Hercules or The Emoji Movie?</h3>
+    <div id='MovieResult'>
+      <!-- Movies will display here -->
+    </div>
+      <button onclick="NewMovie()">Press Here</button>
+  </body>
+</html>

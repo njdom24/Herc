@@ -1,8 +1,13 @@
 var audioGood = new Audio('Res/Dr. B Success.m4a');
 var audioBad = new Audio('Res/Dr. B Failure.m4a');
+var sansAudio = new Audio('Res/sansDance.mp3');
+var fortnite = new Audio('Res/defaultDance.mp3');
 var herc = new Audio('Res/Hercules.m4a');
-var image = new Image();
-image.src = 'Res/sans.gif';
+var img = new Image();
+var sansdance = new Image();
+img.src = 'Res/sans.gif';
+sansdance.src = 'Res/sansdance.gif';
+
 function startQuiz()
 {
     herc.play();
@@ -24,7 +29,7 @@ function startQuiz()
 function evaluateQuiz()
 {
     let nodes = document.querySelectorAll("form");
-
+	let n = document.getElementsByClassName("content")[0].style;
     let numRight = 0;
     let answers = [
     nodes[0][2].checked,
@@ -43,12 +48,27 @@ function evaluateQuiz()
     document.getElementById("corrects").innerHTML = "You got " + numRight + " answers correct!";
 
 	if(numRight == 5)
+	{
 		audioGood.play();
+		n.backgroundImage = "url(Res/sansdance.gif)";
+		document.getElementById("corrects").style.color = "white";
+	}
 	else
+	{
 		audioBad.play();
+		n.backgroundImage = "url(Res/sans.gif)";
+		document.getElementById("corrects").style.color = "black";
+	}
+}
 
-    let n = document.getElementsByClassName("content")[0].style;
-    n.backgroundImage = "url(Res/sans.gif)";
+audioGood.onended = function()
+{
+	sansAudio.play();
+}
+
+audioBad.onended = function()
+{
+	fortnite.play();
 }
 
 function resetQuiz()
@@ -58,6 +78,8 @@ function resetQuiz()
 	document.getElementById("corrects").innerHTML = "";
     audioGood.pause();
 	audioBad.pause();
+	sansAudio.pause();
+	fortnite.pause();
     for(let n = 0; n < nodes.length; n++)
         for(let p = 0; p < nodes[n].length; p++)
             nodes[n][p].checked = false;

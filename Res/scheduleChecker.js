@@ -187,15 +187,42 @@ var toDaysArray = function(a)
 
 var toTable = function(a, canCombine)//Takes a 2D array with each nested array containing ordered classes for a specific day
 {
+    let tempString = "";
     let ceaseRows = [0,0,0,0,0];//determines the amount of rows to skip drawing blanks for per column
     let days = toDaysArray(a);
+	let temp = days[4];
+	days[4] = days[3];
+	days[3] = temp;
+	//days[4] = temp;
 
-    console.log("DAVEDAYS");
     console.log(days);
     if(canCombine)
         combineConsec(days);
     console.log(days);
-    var htmlString = "<table><tr id = \"headers\"><th>Time</th><th>Monday</th> <th>Tuesday</th><th>Wednesday</th><th>Thursday</th> <th>Friday</th></tr>";
+    let table = document.createElement("table");
+    let row = document.createElement("tr");
+    row.id = "headers";
+    table.appendChild(row);
+    let day = document.createElement("th");
+    day.innerText = "Time";
+    row.appendChild(day);
+    day = document.createElement("th");
+    day.innerText = "Monday";
+    row.appendChild(day);
+    day = document.createElement("th");
+    day.innerText = "Tuesday";
+    row.appendChild(day);
+    day = document.createElement("th");
+    day.innerText = "Wednesday";
+    row.appendChild(day);
+    day = document.createElement("th");
+    day.innerText = "Thursday";
+    row.appendChild(day);
+    day = document.createElement("th");
+    day.innerText = "Friday";
+    row.appendChild(day);
+
+    //var htmlString = "<table><tr id = \"headers\"><th>Time</th><th>Monday</th> <th>Tuesday</th><th>Wednesday</th><th>Thursday</th> <th>Friday</th></tr>";
 
     var hour = 8;
     var mins = 0;
@@ -217,18 +244,33 @@ var toTable = function(a, canCombine)//Takes a 2D array with each nested array c
             sHour = "0"+ hour;
         else
             sHour = "" + hour;
-
-        if(hour < 12)
-            htmlString += "<tr><td class = \"" + timeClass + "\">" + hour + ":" + sMins + "&nbspAM</td>";
-        else if(hour == 12)
-            htmlString += "<tr><td class = \"" + timeClass + "\">" + hour + ":" + sMins + "&nbspPM</td>";
-        else
-            htmlString += "<tr><td class = \"" + timeClass + "\">" + (hour-12) + ":" + sMins + "&nbspPM</td>";
-
         if(timeClass == "evenTime")
             timeClass = "oddTime";
         else
             timeClass = "evenTime";
+        
+        row = document.createElement("tr");
+        let cell = document.createElement("td");
+        row.appendChild(cell);
+        table.appendChild(row);
+        cell.className = timeClass;
+        if(hour < 12)
+        {
+            //htmlString += "<tr><td class = \"" + timeClass + "\">" + hour + ":" + sMins + "&nbspAM</td>";
+            cell.innerHTML = "" + hour + ":" + sMins + "&nbspAM";
+        }
+        else if(hour == 12)
+        {
+            //htmlString += "<tr><td class = \"" + timeClass + "\">" + hour + ":" + sMins + "&nbspPM</td>";
+            cell.innerHTML = "" + hour + ":" + sMins + "&nbspPM";
+        }
+        else
+        {
+            //htmlString += "<tr><td class = \"" + timeClass + "\">" + (hour-12) + ":" + sMins + "&nbspPM</td>";
+            cell.innerHTML = "" + (hour-12) + ":" + sMins + "&nbspPM";
+        }
+
+        let cells = [];
         
         let rowClass = "";//"class = \"even\"";
         //days[0][0] = days[0][1];
@@ -250,7 +292,20 @@ var toTable = function(a, canCombine)//Takes a 2D array with each nested array c
                         let addRows = Math.round((parseInt(days[i][j].endHour)*60 + parseInt(closestQuarter(parseInt(days[i][j].endMins))) - parseInt(days[i][j].startHour)*60 - parseInt(closestQuarter(parseInt(days[i][j].startMins))))/15) + 1;
                         ceaseRows[i] += addRows;
                         //console.log(days[i][j].course + ", " + i + ", CEASEROWS: " + ceaseRows[i] + ", ADDROWS: " + addRows);
-                        htmlString += "<td class = \"course\" rowspan = \"" + addRows + "\">" + days[i][j].course + "</td>";
+                        cells[i] = document.createElement("td");
+                        console.log("I: " + i + ", Cells: " + cells.length);
+                        cells[i].className = "course";
+                        cells[i].rowSpan = addRows;
+                        cells[i].innerText = days[i][j].course;
+                        cells[i].addEventListener("mouseover", function(){ 
+                                cells[i].innerText = days[i][j].loc;
+                        });
+                        cells[i].addEventListener("mouseout", function(){
+                                cells[i].innerText = days[i][j].course;
+                        });
+                        row.appendChild(cells[i]);
+                        console.log(cells[i]);
+                        //htmlString += "<td class = \"course\" rowspan = \"" + addRows + "\">" + days[i][j].course + "</td>";
                         //htmlString += "<td>" + days[i][j].course + "</td>";
                         days[i][j].date = "2";//prevents reuse
                         found = true;
@@ -258,21 +313,26 @@ var toTable = function(a, canCombine)//Takes a 2D array with each nested array c
                     }
             }
             if(!found && ceaseRows[i] == 0)
-                htmlString += "<td class = \"" + rowClass + "\"></td>";
+            {
+                cell = document.createElement("td");
+                row.appendChild(cell);
+                cell.className = "" + rowClass;
+                //htmlString += "<td class = \"" + rowClass + "\"></td>";
+            }
             else
                 ceaseRows[i]--;
         }
         //if(!found)
            // htmlString += "<td></td>";
-        htmlString += "</tr>";
+        //htmlString += "</tr>";
         mins += 15;
     }
 
 
-    htmlString += "</table>";
+    //htmlString += "</table>";
     document.getElementById("schedule").className = "content";
-    document.getElementById("heck").innerHTML = htmlString;
-
+    //document.getElementById("heck").innerHTML = htmlString;
+    document.getElementById("heck").appendChild(table);
 }
 
 var closestQuarter = function(a)

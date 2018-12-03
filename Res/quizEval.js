@@ -1,8 +1,11 @@
-var audio;
+var audioGood = new Audio('Res/Dr. B Success.m4a');
+var audioBad = new Audio('Res/Dr. B Failure.m4a');
+var herc = new Audio('Res/Hercules.m4a');
+var image = new Image();
+image.src = 'Res/sans.gif';
 function startQuiz()
 {
-    audio = new Audio('Res/Hercules.m4a');
-    audio.play();
+    herc.play();
     let nodes = document.getElementsByClassName("content")[0].children;
     for(let i = 0; i < nodes.length; i++)
     {
@@ -16,6 +19,7 @@ function startQuiz()
             }
         }
     }
+	document.getElementsByClassName("button")[0].style.display = "none";
 }
 function evaluateQuiz()
 {
@@ -39,10 +43,9 @@ function evaluateQuiz()
     document.getElementById("corrects").innerHTML = "You got " + numRight + " answers correct!";
 
 	if(numRight == 5)
-		audio = new Audio('Res/Dr. B Success.m4a');
+		audioGood.play();
 	else
-		audio = new Audio('Res/Dr. B Failure.m4a');
-    audio.play();
+		audioBad.play();
 
     let n = document.getElementsByClassName("content")[0].style;
     n.backgroundImage = "url(Res/sans.gif)";
@@ -52,7 +55,9 @@ function resetQuiz()
 {
     let nodes = document.querySelectorAll("form");
     document.getElementsByClassName("content")[0].style.backgroundImage = null;
-    audio.pause();
+	document.getElementById("corrects").innerHTML = "";
+    audioGood.pause();
+	audioBad.pause();
     for(let n = 0; n < nodes.length; n++)
         for(let p = 0; p < nodes[n].length; p++)
             nodes[n][p].checked = false;

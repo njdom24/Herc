@@ -283,7 +283,7 @@ var toTable = function(a, canCombine)//Takes a 2D array with each nested array c
             else
                 rowClass = "odd";
             let found = false;
-            //if the class's time isn't in a 15-minute spot, estimate its position*/
+            //if the class's time isn't in a 15-minute spot, estimate its position
             for(let j = 0; j < days[i].length; j++)
             {
                 if(days[i][j].date != "2")

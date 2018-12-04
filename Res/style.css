@@ -238,7 +238,6 @@ li{
 
 .hercsched{
 	border-collapse: collapse;
-	border-style: solid;
 }
 
 .hercsched td, .hercsched th{
@@ -346,6 +345,13 @@ li{
 input[type=radio], label, .question
 {
 	display: none;
+}
+
+input[type=text]
+{
+	margin-left: 40%;
+	margin-right: 40%;
+	width: 20%;
 }
 
 @media screen and (max-width: 800px){

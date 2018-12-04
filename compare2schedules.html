@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang='en'>
-    <head>
+	<head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
-        <title>Compare Schedules</title>
+    	<title>Compare Schedules</title>
         <link rel="stylesheet" href="Res\style.css">
         <link rel="stylesheet" href="Res\table.css">
         <link rel="shortcut icon" type="image/x-icon" href="Res\favicon.ico"/>
         <script src="Res\course.js"></script>
-        <script src="Res\scheduleChecker.js"></script>
-    </head>
-    <body>
+    	<script src="Res\scheduleChecker.js"></script>
+	</head>
+	<body>
         <header>
-           <h1>Schedule Comparer</h1>
+    	   <h1>Schedule Comparer</h1>
             <nav class="navClass">
             <ul>
             <li><a href="index.html">Home</a></li>
@@ -26,6 +26,7 @@
                 <ul class = "sub_menu">
                     <li><a href = "hercschedule.html">See Professor Herc's Schedule</a></li>
                     <li><a href="compare2schedules.html">Compare 2 Schedules</a></li>
+                    <li><a href="profHercSched.html">Compare Your Schedule to Prof. Herc's</a></li>
                     <li><a href ="herculesoremojimovie.html">Watch Hercules or the Emoji Movie?</a></li>
                 </ul>
                 <span class="arrow">&#9660</span>
@@ -33,11 +34,11 @@
             </ul>
             </nav>
         </header>
-        <div class="content">
-            <h3>Compare your schedule with a friend (or enemy) to see what classes (if any) that you have together.</h3>
+    	<div class="content">
+    		<h3>Compare your schedule with a friend (or enemy) to see what classes (if any) that you have together.</h3>
             <!---Schedule comparer from JS here --->
-            Good luck with all the classes you have together. If it's one of Herc's classes, know that he is always watching, ready to give a short quiz at any moment, so BE VERY AFRAID.
-            <br>
+    		Good luck with all the classes you have together. If it's one of Herc's classes, know that he is always watching, ready to give a short quiz at any moment, so BE VERY AFRAID.
+    		<br>
             <img class= "BeAfraid" src="Res\BeAfraid.jpg"> 
             <br>
             <table class="center">
@@ -45,7 +46,7 @@
                     <input type='file' accept='.ics' onchange="openFile(event, 1)"><br>
                     <input type='file' accept='.ics' onchange="openFile(event, 2)"><br>
                     <br>
-                    <button onclick = "compFile()">Calculate</button>
+                    <button onclick = "compFile(true)">Calculate</button>
 
                 </tr>
             </table>
